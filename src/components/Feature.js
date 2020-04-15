@@ -14,6 +14,7 @@ class Feature extends React.Component {
             currency={this.props.currency}
             itemHash={itemHash}
             name={slugify(feature)}
+            key={itemHash}
             checked={item.name === this.props.state.selected[feature].name}
             onChange={(e) => this.props.updateFeature(feature, item)}
           />

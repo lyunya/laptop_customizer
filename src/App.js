@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Customize from "./components/Customize.js";
 import Cart from "./components/Cart.js";
+import FEATURES from './FEATURES.js'
 
 import "./App.css";
 
@@ -41,12 +42,7 @@ class App extends Component {
     });
   };
 
-  render() {
-    
-    const total = Object.keys(this.state.selected).reduce(
-      (acc, curr) => acc + this.state.selected[curr].cost,
-      0);
-
+  render() {     
     return (
       <div className="App">
         <header>
@@ -55,11 +51,11 @@ class App extends Component {
         <main>
           <Customize
             currency={USCurrencyFormat}
-            features={this.props.features}
+            features={FEATURES}
             state={this.state}
             updateFeature={this.updateFeature}
           />
-           <Cart currency={USCurrencyFormat} total={USCurrencyFormat.format(total)} state={this.state} />
+           <Cart currency={USCurrencyFormat} state={this.state} />
         </main>
       </div>
     );
